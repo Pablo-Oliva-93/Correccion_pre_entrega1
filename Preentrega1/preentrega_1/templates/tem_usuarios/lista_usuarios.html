@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Usuarios
+{% endblock %}
+
+{% block filtro %} 
+  <form class="form-inline my-2 my-lg-0" action="/lista_usuario/" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+{% endblock %}
+
+{% block content %}
+  <h1>
+    Bienvenidos
+  </h1>
+
+  <h2>
+    Desde este lugar se pueden ver la listas de usuarios
+  </h2>
+  <a href="/cargar_usuario/" class="btn btn-primary">Crear un nuevo Usuario</a>
+  {% for i in usuarios %}
+    <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{i.usuario}}</h5>
+        <p class="card-text">Su nombre es {{i.nombre}}</p>
+        <p class="card-text">Su edad es {{i.edad}}</p>
+        
+        </div>
+    </div>
+  {%endfor%}
+
+  {% endblock %}

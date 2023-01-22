@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Productos
+{% endblock %}
+
+{% block filtro %} 
+<form class="form-inline my-2 my-lg-0" action="/lista_producto/" method="GET">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+{% endblock %}
+
+{% block content %}
+  <h1>
+    Bienvenidos
+  </h1>
+  <h2>
+    Desde este lugar se pueden ver la listas de productos
+  </h2>
+  <a href="/cargar_producto/" class="btn btn-primary">Crear un nuevo producto</a>
+  {% for i in productos %}
+    <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{i.name}}</h5>
+        <p class="card-text">Su precio es {{i.precio}}</p>
+      </div>
+    </div>
+  {%endfor%}
+
+  {% endblock %}

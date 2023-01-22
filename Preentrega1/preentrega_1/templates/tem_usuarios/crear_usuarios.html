@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Crear usuarios
+{% endblock %}
+
+{% block content %}
+  <h1>
+    Bienvenidos
+  </h1>
+  <h2>
+    Desde este lugar se pueden crear usuarios
+  </h2>
+
+    {% if formulario %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <table>{{formulario.as_table}}</table>
+
+            <input type="submit" value="Crear">
+        </form>
+    {%endif%}
+
+    {% if error_del_formulario %}
+        <H2 style="color: red;">Errores</H2>
+        {{error_del_formulario}}
+    {%endif%}
+
+    {% if mensaje_de_ok %}
+        <H2 style="color: rgb(30, 255, 0);"> {{mensaje_de_ok}} </H2>
+    {%endif%}
+
+
+
+
+
+  {% endblock %}
